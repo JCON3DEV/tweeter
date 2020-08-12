@@ -50,18 +50,19 @@
 
     <main>
       <div>
-        <div>
+        <div class="dynamic-container">
           <section class="submission">
             <h2></h2>
             <form action="/tweets/" method="POST">
               <label for="tweet-text">What are you humming about?</label>
-              <textarea name="text" id="tweet-text"></textarea>
+              <!-- <input type="text" id="" name="" placeholder="Your tweet.."> -->
+              <textarea name="text" id="tweet-text" placeholder="Your tweet.."></textarea>
               <div class="counter">
                 <button type="submit">Tweet</button>
                 <output name="counter" class="counter" for="tweet-text">140</output>
               </div>
             </form>
-            <div id="tweets">
+            <div id="tweet-container"><!--changed from tweets-->
               <article>
                 <div class="top">
                   <img src="https://i.imgur.com/2WZtOD6.png"" alt="a cartoon male face">

@@ -70,6 +70,10 @@ main div {
   background-color: #f4f1ec;
   /* border: 2px solid black; */
 }
+.dynamic-container {
+  position: relative;
+  top: 120px;
+}
 
 
 form {
@@ -103,6 +107,7 @@ textarea {
 }
 article {
   border: 1px solid black;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
