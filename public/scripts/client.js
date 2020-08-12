@@ -6,24 +6,8 @@
 
 // $( () => {})
 $(document).ready(() => {
-  const $tweet = $(`<article class="tweet">HelloWorld<article/>`);
-  // const $tweet = $(`
-  // <article>
-  //   <div class="top">
-  //     <img src="https://i.imgur.com/2WZtOD6.png"" alt="a cartoon male face">
-  //                 <span>${user.name}</span>
-  //     <span class="username">username</span>
-
-  //   </div>
-  //   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugit voluptates omnis unde maiores aliquam recusandae eveniet dolorum!</p>
-  //   <div class="bottom">
-  //     <span class="timestamp">3 days ago</span>
-  //     <span class="fas fa-camera"></span>
-  //   </div>
-  // </article>
-  // `);
-
-  const arrOfTweetObjs = [];
+  
+  // const arrOfTweetObjs = [];
   const $tweetData = {
     "user": {
       "name": "Newton",
@@ -37,12 +21,27 @@ $(document).ready(() => {
     "created_at": 1461116232227
   };
 
+  const $tweet = $(`
+  <article>
+  <div class="top">
+  <img src="${$tweetData.user.avatars}"" alt="a cartoon face">
+  <span>${$tweetData.user.name}</span>
+  <span class="username"></span>
+  
+  </div>
+  <p>${$tweetData.content.text}</p>
+  
+    <div class="bottom">
+      <span class="timestamp">3 days ago</span>
+      <span class="fas fa-camera"></span>
+    </div>
+  </article>
+  `);
+
   const createTweetElement = function (someObj) {
     // arrOfTweetObjs.push(someObj);
     // return $tweet;
-    return `<article>
-        <div class="top"><span class="username">${someObj.user.name}</span></div>
-      </article>`;
+    return $tweet; 
   };
   
   const renderTweets = function (tweet) {
@@ -54,7 +53,6 @@ $(document).ready(() => {
   //   }
   };
 
-  console.log("this is the $tweet", $tweet);
   let newTweet = createTweetElement($tweetData);
   renderTweets(newTweet);
 
