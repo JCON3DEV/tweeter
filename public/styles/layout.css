@@ -3,6 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+ 
 html {
   box-sizing: border-box;
 }
@@ -18,8 +19,118 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ /* Below is some CSS debugging code; */
+/* Debugging Styling. Remove for production */
+/* * { outline: 2px none  red ; row-gap: 5px; column-gap: 5px;}
+* * { outline: 2px none  green }
+* * * { outline: 2px  solid orange }
+* * * * { outline: 2px  solid blue }
+* * * * * { outline: 2px  solid red }
+* * * * * * { outline: 2px  solid green }
+* * * * * * * { outline: 2px  solid orange } */
+/* * * * * * * * * { outline: 2px  solid blue } */
+/* End of debug code
+
+ 
+
+
+  /* Notes on styling MAIN in CSS;
+  It should be only 90% of the width of its parent element
+  It should be center aligned to the body
+  It should have the same colour background as the <body> element 
+
+
+*/
+
+body {
+  
+  /* background-color: orange; */
+  /* display: flex;
+  flex-direction:column; */
+  /* justify-content: center; */
+}
+
+main {
+
+  display: flex;
+  margin: auto;/*Not styled with flexbox*/
+  width: 90%;
+  /* border: 2px dotted blueviolet; */
+}
+
+main div {
+  margin: auto;/*Not styled with flexbox*/
+  width: 90%;
+  background-color: #f4f1ec;
+  /* border: 2px solid black; */
+}
+
+
+form {
+  border-top-color: black;
+}
+label {
+  font-weight: bold;
+  font-size: large;
+}
+button {
+  background-color: #4056A1;
+  font-family: Bungee;
+  color: #f4f1ec;
+}
+output {
+  font-weight: bolder;
+  font-size: x-large ;
+  color: black;
+}
+.counter {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin: 0;
+}
+.overLimit {
+  color:red;
+}
+textarea {
+  width: 100%;
+}
+article {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+article p {
+  border-bottom: 1px solid black;
+  margin: auto;
+  margin: 0 20px;
+  justify-content: space-between;
+}
+article img {
+  max-width: 40px;
+}
+.top {
+  margin-top: 10px;
+  border: 1px solid pink;
+}
+.hidden {
+  visibility: hidden;
+}
+.bottom {
+  margin: 10px 20px;
+  width: auto;
+  border-top: 1px solid black;
+  border: 1px solid purple;
+}
+.timestamp {
+  font-size: .5em;
+}
+.shaded {
+  box-shadow: 5px 5px 10px rgb(175, 148, 148);
+}

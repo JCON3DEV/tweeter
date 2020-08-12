@@ -1,0 +1,29 @@
+/* Notes on styling:
+The header should have a height of 400px and be 100% the width of it's parent container
+The avatar should be centered vertically and horizontally
+The name should be centered below the avatar
+The background should be a different colour than the nav and the body
+The background-image should be a transparent pattern.  */
+
+
+header {
+  background-color: aquamarine;
+  color: #f4f1ec;
+  position: relative;
+  top: 120px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #6b5600;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
+header div {
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+h2 {
+  align-self: center;
+}

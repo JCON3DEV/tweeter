@@ -7,21 +7,83 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
+    <!-- Fonts Bungie and Source Sans Pro 300 & 600-->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;600&display=swap"
+      rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+    <!-- Header CSS-->
+    <link rel="stylesheet" href="/styles/header.css"type="text/css" />
+
+    <!-- Nav CSS-->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    
+    <!-- Char Counter JS-->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <div class="nav-bar">        
+        <span class= "logo">tweeter</span>
+        <span><a href="">Write</a> a new tweet</span>
+      </div>
     </nav>
+    
+    <header>
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <div>
+        <h2>El Hefe</h2>
+      </div>
+    </header>
+
+    <main>
+      <div>
+        <div>
+          <section class="submission">
+            <h2></h2>
+            <form action="/tweets/" method="POST">
+              <label for="tweet-text">What are you humming about?</label>
+              <textarea name="text" id="tweet-text"></textarea>
+              <div class="counter">
+                <button type="submit">Tweet</button>
+                <output name="counter" class="counter" for="tweet-text">140</output>
+              </div>
+            </form>
+            <div id="tweets">
+              <article>
+                <div class="top">
+                  <img src="https://i.imgur.com/2WZtOD6.png"" alt="a cartoon male face">
+                  <span>El Hefe</span>
+                  <span class="username">username</span>
+
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugit voluptates omnis unde maiores aliquam recusandae eveniet dolorum!</p>
+                <div class="bottom">
+                  <span class="timestamp">3 days ago</span>
+                  <span class="fas fa-camera"></span>
+                  <i class="fab fa-font-awesome-flag"></i>
+                  <i class="fas fa-heart"></i>
+                </div>
+              </article>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
 
     <!-- Page-specific (main) content here -->
     <main class="container"></main>
