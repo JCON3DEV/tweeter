@@ -53,12 +53,13 @@
         <div class="dynamic-container">
           <section class="submission">
             <h2></h2>
-            <form action="/tweets/" method="POST">
+
+            <form>
               <label for="tweet-text">What are you humming about?</label>
               <!-- <input type="text" id="" name="" placeholder="Your tweet.."> -->
               <textarea name="text" id="tweet-text" placeholder="Your tweet.."></textarea>
               <div class="counter">
-                <button type="submit">Tweet</button>
+                <button id="submission" type="submit">Tweet</button>
                 <output name="counter" class="counter" for="tweet-text">140</output>
               </div>
             </form>

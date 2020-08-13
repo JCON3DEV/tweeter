@@ -7,18 +7,18 @@
 // $( () => {})
 $(document).ready(() => {
   
-  const $tweetData = [
-    {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
+const $tweetData = [
+  {
+  "user": {
+    "name": "Newton",
+    "avatars": "https://i.imgur.com/73hZDYK.png"
+    ,
+    "handle": "@SirIsaac"
+  },
+  "content": {
+    "text": "If I have seen further it is by standing on the shoulders of giants"
+  },
+  "created_at": 1461116232227
   },
   {
     "user": {
@@ -32,7 +32,7 @@ $(document).ready(() => {
     "created_at": 1461113959088
   }
 ];
-  
+
 
 const createTweetElement = function (someObj) {
   const $tweet = $(`
@@ -62,5 +62,31 @@ const createTweetElement = function (someObj) {
   };
   
   renderTweets($tweetData);
+
+  // $("#submission").on('click', function () {
+  //   console.log("activating");
+  //   event.preventDefault();
+  // });
+  $.get("/tweets/", function (data) {
+    // console.log(data);
+    alert("Load was performed.");
+  });
+  
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    // console.log($(this).serialize());
+    const package = $(this).serialize();
+    $.post("/tweets/", package)
+      .then(function(){})
+  });
+
+  // $.ajax({
+  //   url: `http://localhost:8080/tweets/`,
+  //   method : 'GET',
+  //   dataType: 'JSON',
+  //   success: (response) => { console.log(response) },
+  //   error: (err) => { console.log(err); }    
+  // });
+
 
 });
