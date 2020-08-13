@@ -14,18 +14,18 @@ $(document).ready(function () {
   //   console.log("This is what keyup does");
   // });
   let keystrokes;
-  $("textarea").keypress(function (e) {
+  const keypresscounter = function(e){
     // console.log(e.target.value.length); 
     keystrokes = 140 - e.target.value.length;
     $("output.counter").val(140 - e.target.value.length);
     // console.log(keystrokes);
     if (keystrokes < 0) {
-      // console.log("style the numbers red")
-      // $("output.counter").css('color', 'red');
       $("output.counter").addClass("overLimit");
     }
-    
-  });
+  };
+
+  $("textarea").keyup(keypresscounter);
+
   // Need to update this, curently not working
   // https://web.compass.lighthouselabs.ca/activities/323
   $("body").mouseover(function () {
