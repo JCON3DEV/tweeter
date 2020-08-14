@@ -6,8 +6,8 @@ This app provides live updates to users after they post their fascinating and we
 
 ## Screenshots
 
-!["Full screen width"]()
-!["Medium and small screen"]()
+!["Full screen width"](https://github.com/JCON3DEV/tweeter/blob/master/docs/fullScreenPhoto.png)
+!["Medium and small screen"](https://github.com/JCON3DEV/tweeter/blob/master/docs/smallScreenPhoto.png)
 
 ## Getting Started
 
