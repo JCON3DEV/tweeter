@@ -139,3 +139,8 @@ article img {
 .shaded {
   box-shadow: 5px 5px 10px rgb(175, 148, 148);
 }
+div .errorMsg{
+  margin-top: 5px;
+  border: 2px solid red;
+  color: red;
+}

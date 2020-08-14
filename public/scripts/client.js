@@ -7,8 +7,14 @@
 // $( () => {})
 $(document).ready(() => {
 
+const escape = function (str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
-let formattedTime;
+
+// let formattedTime;
 const generatePostedTime = function(timeStamp){
   let usableDate = new Date(timeStamp * 1000);
   let hours = usableDate.getHours();
@@ -23,15 +29,15 @@ const createTweetElement = function (someObj) {
   const $tweet = $(`
   <article>
   <div class="top">
-  <img src="${avatarUrl}"" alt="a cartoon face">
-  <span>${userName}</span>
-  <span class="username">${handle}</span>
+  <img src="${escape(avatarUrl)}"" alt="a cartoon face">
+  <span>${escape(userName)}</span>
+  <span class="username">${escape(handle)}</span>
   
   </div>
-  <p>${text}</p>
+  <p>${escape(text)}</p>
   
   <div class="bottom">
-  <span class="timestamp">${formattedTime}</span>
+  <span class="timestamp">${escape(formattedTime)}</span>
   <span class="fas fa-camera"></span>
   </div>
   </article>
@@ -74,12 +80,23 @@ const createTweetElement = function (someObj) {
     let canSend = true;
     // let keyStrokesRemaining = $("textarea").val().length;
     if (keyStrokesRemaining === 140) {
-      alert("Enter in some characters");
+      // alert("Enter in some characters");
+      // uncomment above before submission.
+      // hide the following element creation prior to submission
+      $(".dynamic-container").slideDown('slow').prepend("<div class=\"errorMsg\" width=\"100\" height=\"123\">Please enter in some characters<style></div>");
+      $(".errorMsg").click(function () {
+        $(".errorMsg").remove(".errorMsg");
+      });
       canSend = false;
       return
     } else if (keyStrokesRemaining < 0){
+      // alert("140 character limit. Delete some characters");
+      // hide the following element creation prior to submission and uncomment above
+      $(".dynamic-container").slideDown('slow').prepend("<div class=\"errorMsg\" width=\"100\" height=\"123\">Please use less than 140 characters<style></div>");
+      $(".errorMsg").click(function () {
+        $(".errorMsg").remove(".errorMsg");
+      });
       canSend = false;
-      alert("140 character limit. Delete some characters");
       return
     }
     if (canSend) {
