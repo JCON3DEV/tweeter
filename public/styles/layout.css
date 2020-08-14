@@ -109,7 +109,7 @@ article {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 2px 1px black;/*edited*/
+  /* box-shadow: 2px 2px 1px black; */
 }
 article p {
   border-bottom: 1px solid black;
@@ -121,9 +121,9 @@ article p {
 article img {
   max-width: 40px;
 }
-/* article.shaded {
-  box-shadow: 2px 2px 1px black; /*edited
-} */
+article.shaded {
+  box-shadow: 2px 2px 1px black; /*edited*/
+}
 
 .top {
   display: flex; /*editted*/

@@ -16,7 +16,7 @@ const escape = function (str) {
 
 // let formattedTime;
 const generatePostedTime = function(timeStamp){
-  let usableDate = new Date(timeStamp * 1000);
+  let usableDate = new Date(timeStamp);
   let hours = usableDate.getHours();
   let minutes = "0" + usableDate.getMinutes();
   let formattedTime = 'Posted; ' + hours + ':' + minutes.substr(-2);
@@ -29,9 +29,11 @@ const createTweetElement = function (someObj) {
   const $tweet = $(`
   <article>
   <div class="top">
-  <img src="${escape(avatarUrl)}"" alt="a cartoon face">
-  <span>${escape(userName)}</span>
-  <span class="username">${escape(handle)}</span>
+  <div>
+    <img src="${escape(avatarUrl)}"" alt="a cartoon face">
+    <span>${escape(userName)}</span>
+  </div>
+  <span class="handle hidden">${escape(handle)}</span>
   
   </div>
   <p>${escape(text)}</p>
@@ -57,6 +59,15 @@ const createTweetElement = function (someObj) {
         formattedTime: generatePostedTime(single.created_at),      
       });
       //This is updating the page
+      newTweet.mouseover(function () {
+        newTweet.addClass("shaded");
+        newTweet.find(".handle").removeClass("hidden");
+      });
+      newTweet.mouseleave(function () {
+        newTweet.removeClass("shaded");
+        newTweet.find(".handle").addClass("hidden");
+      })
+      // edited from composer
       $("#tweet-container").prepend(newTweet);
     }
   };

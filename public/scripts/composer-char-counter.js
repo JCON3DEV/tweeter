@@ -22,6 +22,9 @@ $(document).ready(function () {
     if (keystrokes < 0) {
       $("output.counter").addClass("overLimit");
     }
+    if(keystrokes >= 0) {
+      $("output.counter").removeClass("overLimit");
+    }
   };
 
   $("textarea").keyup(keypresscounter);
@@ -29,16 +32,9 @@ $(document).ready(function () {
   // Need to update this, curently not working
   // https://web.compass.lighthouselabs.ca/activities/323
   $("body").mouseover(function () {
-    $("username").addClass("hidden");
+    $(".username").addClass("hidden");
   });
 
-  $("article").mouseover(function () {
-    $("article").addClass("shaded");
-    $("username").removeClass("hidden");
-  });
-  $("article").mouseleave(function () {
-    $("article").removeClass("shaded");
-    $("username").addClass("hidden");
-  })
+  
   // add shadow in css file box-shadow: 2px 2px 1px black;
 });
