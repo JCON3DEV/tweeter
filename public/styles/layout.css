@@ -25,56 +25,20 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- /* Below is some CSS debugging code; */
-/* Debugging Styling. Remove for production */
-/* * { outline: 2px none  red ; row-gap: 5px; column-gap: 5px;}
-* * { outline: 2px none  green }
-* * * { outline: 2px  solid orange }
-* * * * { outline: 2px  solid blue }
-* * * * * { outline: 2px  solid red }
-* * * * * * { outline: 2px  solid green }
-* * * * * * * { outline: 2px  solid orange } */
-/* * * * * * * * * { outline: 2px  solid blue } */
-/* End of debug code
-
- 
-
-
-  /* Notes on styling MAIN in CSS;
-  It should be only 90% of the width of its parent element
-  It should be center aligned to the body
-  It should have the same colour background as the <body> element 
-
-
-*/
-
-body {
-  
-  /* background-color: orange; */
-  /* display: flex;
-  flex-direction:column; */
-  /* justify-content: center; */
-}
 
 main {
   overflow: hidden;
-  /* display: flex; */
-  margin: auto;/*Not styled with flexbox*/
-  /* border: 2px dotted blueviolet; */
+  margin: auto;
 }
-
 main div {
-  margin: auto;/*Not styled with flexbox*/
+  margin: auto;
   width: 90%;
   background-color: #f4f1ec;
-  /* border: 2px solid black; */
 }
 .dynamic-container {
   position: relative;
   top: 120px;
 }
-
-
 form {
   border-top-color: black;
 }
@@ -110,7 +74,6 @@ article {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  /* box-shadow: 2px 2px 1px black; */
 }
 article p {
   border-bottom: 1px solid black;
@@ -123,17 +86,15 @@ article img {
   max-width: 40px;
 }
 article.shaded {
-  box-shadow: 2px 2px 1px black; /*edited*/
+  box-shadow: 2px 2px 1px black;
 }
 
 .top {
-  display: flex; /*editted*/
+  display: flex;
   margin-top: 10px;
-  border: 1px solid pink;
   justify-content: space-between;
 }
 .top span {
-  /* why cant i space these! */
   justify-content: space-between;
   align-items: center;
 }
@@ -145,7 +106,6 @@ article.shaded {
   width: auto;
   align-items: center;
   border-top: 1px solid black;
-  border: 1px solid purple;
 }
 .timestamp {
   font-size: .5em;
@@ -185,7 +145,6 @@ div .errorMsg{
     margin-right: auto;
   }
   .wrapper{
-    /* probs delete; display:flex;  */    
     flex-direction: column;
     align-items: center;
   }
@@ -200,6 +159,7 @@ div .errorMsg{
     top: 0;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   nav {
     position: fixed;
@@ -211,14 +171,10 @@ div .errorMsg{
   }
   body {
     display: flex;
-    /* justify-content: */
   }
   header {
     top: 120px;
     margin: 3rem;
-  }
-  main {
-    
   }
   .outer-container{
     display: flex;

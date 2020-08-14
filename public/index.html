@@ -33,7 +33,6 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
     <nav>
       <div class="nav-bar">        
         <span class= "logo">tweeter</span>
@@ -55,44 +54,21 @@
           <div class="dynamic-container">
             <section class="submission">
               <h2></h2>
-
               <form>
                 <label for="tweet-text">What are you humming about?</label>
-                <!-- <input type="text" id="" name="" placeholder="Your tweet.."> -->
                 <textarea name="text" id="tweet-text" placeholder="Your tweet.."></textarea>
                 <div class="counter">
                   <button id="submission" type="submit">Tweet</button>
                   <output name="counter" class="counter" for="tweet-text">140</output>
                 </div>
               </form>
-              <div id="tweet-container"><!--changed from tweets-->
-                <!-- <article>
-                  <article class="my-new-tweet"></article>
-                  <div class="top">
-                    <img src="https://i.imgur.com/2WZtOD6.png"" alt="a cartoon male face">
-                    <div class="user-details">
-                      <span>El Hefe</span>
-                      <span class="username">@El_Hefe</span>
-                    </div>
-                  </div>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugit voluptates omnis unde maiores aliquam recusandae eveniet dolorum!</p>
-                  <div class="bottom">
-                    <span class="timestamp">3 days ago</span>
-                    <span class="fas fa-camera"></span>
-                    <i class="fab fa-font-awesome-flag"></i>
-                    <i class="fas fa-heart"></i>
-                  </div>
-                </article> -->
+              <div id="tweet-container">
+                <!-- the article has been removed and instead inserted using createTweetElement() function inside client.js -->
               </div>
             </section>
-
           </div>
         </div>
       </main>
     </div>
-
-
-    <!-- Page-specific (main) content here -->
-    <!-- <main class="container"></main> -->
   </body>
 </html>

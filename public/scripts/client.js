@@ -14,7 +14,7 @@ const escape = function (str) {
 }
 
 
-// let formattedTime;
+// below formats the timestamp from the server into usable hour and minute time; eg 14:24
 const generatePostedTime = function(timeStamp){
   let usableDate = new Date(timeStamp);
   let hours = usableDate.getHours();
@@ -23,8 +23,8 @@ const generatePostedTime = function(timeStamp){
   return formattedTime;
 };
 
+// creates HTML element to dynamically render onto the page
 const createTweetElement = function (someObj) {
-  
   const { avatarUrl, text, userName, handle, formattedTime } = someObj;
   const $tweet = $(`
   <article>
@@ -46,54 +46,50 @@ const createTweetElement = function (someObj) {
   `);
   return $tweet; 
   };
+
+// below takes the array of tweet objects and seperates it into its usable key value pairs for rederning the most recent tweet onto the page
+const renderTweets = function (arrOfTweetObjs) {
+  for (const single of arrOfTweetObjs) {
+    
+    let newTweet = createTweetElement({
+      avatarUrl: single.user.avatars,
+      text: single.content.text,
+      userName: single.user.name,
+      handle: single.user.handle,
+      formattedTime: generatePostedTime(single.created_at),      
+    });
+    //this styling has been added here because the elements are dynamically rendered, they are not yet created hen the styling is applied on layout.css
+    newTweet.mouseover(function () {
+      newTweet.addClass("shaded");
+      newTweet.find(".handle").removeClass("hidden");
+    });
+    newTweet.mouseleave(function () {
+      newTweet.removeClass("shaded");
+      newTweet.find(".handle").addClass("hidden");
+    })
+    // adds the newly created element onto the top of the HTML container that houses the tweet feed
+    $("#tweet-container").prepend(newTweet);
+  }
+};
   
-  const renderTweets = function (arrOfTweetObjs) {
-    for (const single of arrOfTweetObjs) {
-      console.log("the valuse of single", single);
-      
-      let newTweet = createTweetElement({
-        avatarUrl: single.user.avatars,
-        text: single.content.text,
-        userName: single.user.name,
-        handle: single.user.handle,
-        formattedTime: generatePostedTime(single.created_at),      
-      });
-      //This is updating the page
-      newTweet.mouseover(function () {
-        newTweet.addClass("shaded");
-        newTweet.find(".handle").removeClass("hidden");
-      });
-      newTweet.mouseleave(function () {
-        newTweet.removeClass("shaded");
-        newTweet.find(".handle").addClass("hidden");
-      })
-      // edited from composer
-      $("#tweet-container").prepend(newTweet);
-    }
-  };
-  
+// function that catches the information sent to the server and calls the other functions to dynamically render them 
   const loadTweets = function() {
     $.get("/tweets/", function (data) {
-      // console.log(data);
-      // data is all the objects - tweets
       renderTweets(data);
-      console.log("############## PAGE LOADED ###");
     });
     
   };
 
-  // moved loadTweets(); from here
-  
+  // takes the input from the form element on the HTML page and validates it according to criteria for posting
   $("form").on("submit", function (event) {
     event.preventDefault();
     let keyStrokesRemaining = 140 -$("#tweet-text").val().length;
-    // console.log(keyStrokesRemaining);
     let canSend = true;
-    // let keyStrokesRemaining = $("textarea").val().length;
+    // error conditions & msg's prevent user sending tweets.  
+    if (canSend) {
+      $(".errorMsg").remove(".errorMsg");
+    }
     if (keyStrokesRemaining === 140) {
-      // alert("Enter in some characters");
-      // uncomment above before submission.
-      // hide the following element creation prior to submission
       $(".dynamic-container").slideDown('slow').prepend("<div class=\"errorMsg\" width=\"100\" height=\"123\">Please enter in some characters<style></div>");
       $(".errorMsg").click(function () {
         $(".errorMsg").remove(".errorMsg");
@@ -101,8 +97,6 @@ const createTweetElement = function (someObj) {
       canSend = false;
       return
     } else if (keyStrokesRemaining < 0){
-      // alert("140 character limit. Delete some characters");
-      // hide the following element creation prior to submission and uncomment above
       $(".dynamic-container").slideDown('slow').prepend("<div class=\"errorMsg\" width=\"100\" height=\"123\">Please use less than 140 characters<style></div>");
       $(".errorMsg").click(function () {
         $(".errorMsg").remove(".errorMsg");
@@ -110,34 +104,23 @@ const createTweetElement = function (someObj) {
       canSend = false;
       return
     }
+    // below packages the information into a sendable format
     if (canSend) {
-      // console.log($(this).serialize());
       const package = $(this).serialize();
       $.post("/tweets/", package)
       .then(function(){
         $.getJSON(`/tweets/`)
           .then(data => {
-            //below takes the most recent tweet from the tweet obbjects sent to the server
+            //below takes the most recent tweet from the tweet objects sent to the server
             // adds it to an empty array and then passes that to the renderTweets function to display it
             const latestTweet = data[data.length - 1];
             const arrayOfLatestTweet = [];
             arrayOfLatestTweet.push(latestTweet);
-            console.log("#############winning#########");
             renderTweets(arrayOfLatestTweet);
           })
       })
     }
   });
-    // TO DO;
-    // Post the tweet to the server X
-    // confirm server has the data - X
-    // Need to collect the (text / timestamp) from the sertver X
-    // conole.log the text of the tweet and the timestamp to the console X
-    // Display the text of the tweet X
-    
-    // Display the timestamp X
-    // Display the username placeholder X
-    // Display the handle X
               
   loadTweets();
   
