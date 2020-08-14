@@ -60,7 +60,6 @@ main {
 
   display: flex;
   margin: auto;/*Not styled with flexbox*/
-  width: 90%;
   /* border: 2px dotted blueviolet; */
 }
 
@@ -110,19 +109,32 @@ article {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 2px 1px black;/*edited*/
 }
 article p {
   border-bottom: 1px solid black;
   margin: auto;
   margin: 0 20px;
+  padding-left: 10px;
   justify-content: space-between;
 }
 article img {
   max-width: 40px;
 }
+/* article.shaded {
+  box-shadow: 2px 2px 1px black; /*edited
+} */
+
 .top {
+  display: flex; /*editted*/
   margin-top: 10px;
   border: 1px solid pink;
+  justify-content: space-between;
+}
+.top span {
+  /* why cant i space these! */
+  justify-content: space-between;
+  align-items: center;
 }
 .hidden {
   visibility: hidden;
@@ -130,6 +142,7 @@ article img {
 .bottom {
   margin: 10px 20px;
   width: auto;
+  align-items: center;
   border-top: 1px solid black;
   border: 1px solid purple;
 }
@@ -139,8 +152,62 @@ article img {
 .shaded {
   box-shadow: 5px 5px 10px rgb(175, 148, 148);
 }
+.timestamp {
+  padding-left: 10px;
+}
 div .errorMsg{
   margin-top: 5px;
   border: 2px solid red;
   color: red;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    display:none;
+  }
+   header {
+    margin-top: 0;
+  }
+  .dynamic-container {
+    top: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width:1023px) {
+  body {
+    position: relative;
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  nav {
+    display:none;
+  }
+  
+  .dynamic-container {
+    top: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  nav {
+    position: fixed;
+  }
+  body {
+    display: flex;
+    /* justify-content: */
+  }
+  header {
+    top: 120px;
+  }
+  main {
+    
+  }
+  .outer-container{
+    display: flex;
+    flex-direction: row;
+  }
 }

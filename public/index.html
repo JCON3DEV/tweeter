@@ -3,6 +3,8 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <!--Disable viewport Zooming-->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -49,7 +51,7 @@
     </header>
 
     <main>
-      <div>
+      <div class="outer-container">
         <div class="dynamic-container">
           <section class="submission">
             <h2></h2>
@@ -64,13 +66,14 @@
               </div>
             </form>
             <div id="tweet-container"><!--changed from tweets-->
-              <article>
+              <!-- <article>
                 <article class="my-new-tweet"></article>
                 <div class="top">
                   <img src="https://i.imgur.com/2WZtOD6.png"" alt="a cartoon male face">
-                  <span>El Hefe</span>
-                  <span class="username">username</span>
-
+                  <div class="user-details">
+                    <span>El Hefe</span>
+                    <span class="username">@El_Hefe</span>
+                  </div>
                 </div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugit voluptates omnis unde maiores aliquam recusandae eveniet dolorum!</p>
                 <div class="bottom">
@@ -79,7 +82,7 @@
                   <i class="fab fa-font-awesome-flag"></i>
                   <i class="fas fa-heart"></i>
                 </div>
-              </article>
+              </article> -->
             </div>
           </section>
 
