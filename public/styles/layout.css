@@ -57,8 +57,8 @@ body {
 }
 
 main {
-
-  display: flex;
+  overflow: hidden;
+  /* display: flex; */
   margin: auto;/*Not styled with flexbox*/
   /* border: 2px dotted blueviolet; */
 }
@@ -109,6 +109,7 @@ article {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
   /* box-shadow: 2px 2px 1px black; */
 }
 article p {
@@ -180,14 +181,21 @@ div .errorMsg{
 @media only screen and (min-width: 768px) and (max-width:1023px) {
   body {
     position: relative;
-    width: 768px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .wrapper{
+    /* probs delete; display:flex;  */    
+    flex-direction: column;
+    align-items: center;
   }
   nav {
     display:none;
   }
-  
+  main {
+    display: flex;
+    justify-content: center;
+  }
   .dynamic-container {
     top: 0;
   }
@@ -196,12 +204,18 @@ div .errorMsg{
   nav {
     position: fixed;
   }
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+  }
   body {
     display: flex;
     /* justify-content: */
   }
   header {
     top: 120px;
+    margin: 3rem;
   }
   main {
     
